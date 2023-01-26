@@ -9,8 +9,6 @@
 let START_YEAR = 1066;
 // initial soldiers of kingdom
 let INITIAL_PLAYER_SOLDIERS = 1050;
-// initial default starting region
-let DEFAULT_STARTING_REGION = "Baden";
 // provinces required to level up to Duke, King, or Emperor (events can adjust this)
 let REQUIRED_PROVINCES_DUKE = 4;
 let REQUIRED_PROVINCES_KING = 7;
@@ -87,6 +85,9 @@ let DEATH_SOLDIERS_HYGIENE_EVENT_CHANCE = 0.1;   // soldiers dying from bad hygi
 /*
     IF NOT DEVELOPER, DO NOT ADJUST THESE FOLLOWING CONSTANTS. WILL BREAK GAME!
 */
+// initial default starting region
+const DEFAULT_STARTING_REGION = "Baden";
+const DEFAULT_ICON_CHOICE = "king_1_choice";
 const EDUCATE_CHILD_CONDITION = "educateChild";
 const ARRANGE_MARRIAGE_CONDITION = "arrangeMarriage";
 const CHANGE_HEIR_CONDITION = "changeHeir";
@@ -131,10 +132,34 @@ let selectedMemberWrapper = {
     element : null,
     member : null
 };
+// keep track of icon name chosen
+let iconChosen = DEFAULT_ICON_CHOICE;
+
+let iconChoices = {
+    "king_1_choice" : "./media/king_1.png",
+    "king_2_choice" : "./media/king_2.png",
+    "king_3_choice" : "./media/king_3.png",
+    "queen_1_choice" : "./media/queen_1.png",
+    "queen_2_choice" : "./media/queen_2.png",
+    "queen_3_choice" : "./media/queen_3.png"
+};
+
+const M_GENDER = "m";
+const F_GENDER = "f";
+let babyIcons = {
+    "m" : "./media/baby_boy.png",
+    "f" : "./media/baby_girl.png"
+};
+let kidIcons = {
+    "m" : "./media/boy.png",
+    "f" : "./media/girl.png"
+};
+
 
 
 // character object for each descendant
-function Character(name, age, skillLevel) {
+// todo by default iconUrl is baby url
+function Character(name, age, skillLevel, iconUrl, gender) {
     this.name = name;
     this.age = age;
     // TODO SKILL LEVEL IS RANDOM FROM 1-3 FOR NEW PEOPLE!
@@ -148,6 +173,10 @@ function Character(name, age, skillLevel) {
     this.uniqueId = uniqueId;
     familyMembers[uniqueId] = this;
     uniqueId++;
+    this.iconUrl = iconUrl;
+    this.gender = gender;
+    // if icon is permanent (should not change to random icon once become adult)
+    this.iconSet = false;
 }
 
 // All Dynasty Names as Constants
@@ -1339,9 +1368,31 @@ function showInputScreen() {
     var audio = new Audio('media/backrgoundmusic.mp3');
     audio.play();
     audio.loop = true;
-    audio.volume = 0.2;
+    audio.volume = 0.1;
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("initialScreen").style.display = "block";
+
+    // setup icon selection:
+    // on click, save icon selection, apply deselect to everything, then reset display of chosen icon
+    for(let iconColDiv of document.getElementsByClassName("iconCol")) {
+        for (let iconImg of iconColDiv.getElementsByTagName("img")) {
+            iconImg.onclick = function() {
+                iconChosen = this.getAttribute('id');
+                // apply deslect to all elements
+                deselectAllIconChoices();
+                // reset this style
+                this.style.opacity = "1";
+            };
+        }
+    }
+}
+
+function deselectAllIconChoices() {
+    for(let iconColDiv of document.getElementsByClassName("iconCol")) {
+        for (let iconImg of iconColDiv.getElementsByTagName("img")) {
+            iconImg.style.opacity = "0.5";
+        }
+    }
 }
 
 // confirm details are correct
@@ -1365,18 +1416,26 @@ function loadGame() {
     gameScreen.style.display = "block";
 
     // setup family
-    currentRuler = new Character(initialRulerName, INITIAL_RULER_AGE, INITIAL_RULER_SKILL_LEVEL);
+    // todo determeien ruler geneder based on choice...
+    let gender;
+    if (iconChosen === "king_1_choice" || iconChosen === "king_2_choice" || iconChosen === "king_3_choice") {
+        gender = M_GENDER;
+    } else if (iconChosen === "queen_1_choice" || iconChosen === "queen_2_choice" || iconChosen === "queen_3_choice") {
+        gender = F_GENDER;
+    }
+    currentRuler = new Character(initialRulerName, INITIAL_RULER_AGE, INITIAL_RULER_SKILL_LEVEL, iconChoices[iconChosen], gender);
     currentRuler.spouse = playerCountry;
+    currentRuler.iconSet = true;
 
-    currentHeir = new Character(initialRulerName + " II", 0, 1);
-    // add new generation
+    currentHeir = new Character("Henry", 0, Math.floor(Math.random()*3)+1, babyIcons[M_GENDER], M_GENDER);
+    // add another child
     currentRuler.children.push(currentHeir);
-    currentRuler.children.push(new Character(initialRulerName + " JR.", 0, 1));
+    currentRuler.children.push(new Character("Elizabeth", 0, Math.floor(Math.random()*3)+1, babyIcons[F_GENDER], F_GENDER));
 
 
     // setup initial values in ui
     document.getElementById("rulerNameUI").textContent = getDynastyRankString() +" "+ initialRulerName +" of "+ playerCountry.name;
-    // document.getElementById("countryNameDisplay").textContent = "Country: " + playerCountry.name;
+    document.getElementById("rulerIcon").src = currentRuler.iconUrl;
     document.getElementById("dynastyNameDisplay").textContent = "House " + playerCountry.dynastyName;
     document.getElementById("age").textContent = "Age: " + INITIAL_RULER_AGE;
     document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
@@ -1512,17 +1571,7 @@ function attack() {
                                 // if ranking up, rank up. if you become the holy roman emperor, win game
                                 // todo, should be able to look around map and family tree
                                 dynastyRank++;
-                                // must update again
-                                const province_count = Object.keys(provincesOwned).length;
-                                document.getElementById("provinceNumber").textContent = province_count+"/"+getRequiredProvinces();
-                                document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
-                                if (dynastyRank === 4) {
-                                    // if they became holy roman emperor
-                                    showEventDialog("./media/becameEmperor.jpg",
-                                        "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" thrived! YOU WIN");
-                                    // disable button, game over
-                                    document.getElementById("endEventButton1").style.display = "none";
-                                } else {
+                                if (!becameHolyRomanEmperor()) {
                                     showEventDialog("./media/rankup.jpg",
                                         "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" continues to expand! You have ranked up to a "+getDynastyRankString()+"!",
                                         "Continue");
@@ -1691,17 +1740,7 @@ function askVassal() {
                             // if ranking up, rank up. if you become the holy roman emperor, win game
                             // todo, should be able to look around map and family tree
                             dynastyRank++;
-                            // must update again
-                            const province_count = Object.keys(provincesOwned).length;
-                            document.getElementById("provinceNumber").textContent = province_count+"/"+getRequiredProvinces();
-                            document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
-                            if (dynastyRank === 4) {
-                                // if they became holy roman emperor
-                                showEventDialog("./media/becameEmperor.jpg",
-                                    "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" thrived! YOU WIN");
-                                // disable button, game over
-                                document.getElementById("endEventButton1").style.display = "none";
-                            } else {
+                            if (!becameHolyRomanEmperor()) {
                                 showEventDialog("./media/rankup.jpg",
                                     "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" continues to expand! You have ranked up to a "+getDynastyRankString()+"!",
                                     "Continue");
@@ -1735,8 +1774,6 @@ function askVassal() {
         }
     };
 }
-
-
 // see family tree without consuming an action
 function viewFamilyTree() {
     showFamilyTree(VIEW_FAMILY_TREE_CONDITION, "Family Tree");
@@ -2068,18 +2105,9 @@ function endTurn() {
                         "Your soldiers fought valiantly, and impressed the Pope! Your title will rank up to a: " +getDynastyRankString()+"!",
                         "Continue");
                     document.getElementById("endEventButton1").onclick = function() {
-                        // if ranking up, rank up. if you become the holy roman emperor, win game
+                        // check if became holy emperor or ranked up, updating info as needed
                         // todo, should be able to look around map and family tree
-                        document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
-                        const province_count = Object.keys(provincesOwned).length;
-                        document.getElementById("provinceNumber").textContent = province_count+"/"+getRequiredProvinces();
-                        if (dynastyRank === 4) {
-                            // if they became holy roman emperor
-                            showEventDialog("./media/becameEmperor.jpg",
-                                "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" thrived! YOU WIN");
-                            // disable button, game over
-                            document.getElementById("endEventButton1").style.display = "none";
-                        } else {
+                        if(!becameHolyRomanEmperor()) {
                             document.getElementById("eventDialog").style.display = "none";
                             ageIncreasePhase();
                         }
@@ -2278,12 +2306,15 @@ function weightedRandomChoice(weights) {
 // ensures that ui is updated properly on every ruler change
 function updateRuler(newRuler=currentRuler) {
     currentRuler = newRuler;
+    // todo make name depend on gender!?
     document.getElementById("rulerNameUI").textContent = getDynastyRankString() +" "+ newRuler.name +" of "+ playerCountry.name;
+    document.getElementById("rulerIcon").src = currentRuler.iconUrl;
     document.getElementById("age").textContent = "Age: " + newRuler.age;
     document.getElementById("skillLevel").textContent = "Skill: " + newRuler.skillLevel;
 }
 
 function showDeathDialog(deadMembers, nextStepCallback, causeOfDeath="") {
+    let gameOver = false;
     // extra nonruler nonHeir members that died
     let extraDeadMembers = [];
     let kingDied = false;
@@ -2301,7 +2332,6 @@ function showDeathDialog(deadMembers, nextStepCallback, causeOfDeath="") {
     updateRuler();
     // extra nonking or heir memeber
     let deathEventText = "";
-    let deathEventImg = "./media/deathOfOldAge.png";
     let extraAliveMembers = [];
     for (let memberId in familyMembers) {
         let famMember = familyMembers[memberId];
@@ -2344,19 +2374,15 @@ function showDeathDialog(deadMembers, nextStepCallback, causeOfDeath="") {
             };
         } else {
             // no one to replace ruler and heir. so game over
-            deathEventImg = "./media/gameOver.jpg";
+            gameOver = true;
             deathEventText += "Heavens! Both you, " +currentRuler.name+ ", AND your heir, " +currentHeir.name+", have died "+causeOfDeath+" simultaneously. There is no one else alive to take their place...Your dynasty has failed. GAME OVER!";
-            // disable end turn (game over)
-            document.getElementById("endEventButton1").style.display = "none";
         }
     } else if (kingDied || heirDied) {
         if (kingDied) {
             // end game if no heir possible for ruler replacement
             if (currentHeir === null) {
-                deathEventImg = "./media/gameOver.jpg";
+                gameOver = true;
                 deathEventText += "Heavens! You, " +currentRuler.name+", have died "+causeOfDeath+"! You died with no heir so your dynasty has failed. GAME OVER!.";
-                // disable end turn (game over)
-                document.getElementById("endEventButton1").style.display = "none";
             } else if (extraAliveMembers.length === 1) {
                 // if only 1 possible heir so we automatically select
                 deathEventText += "Heavens! You, " +currentRuler.name+", have died "+causeOfDeath+"! So your heir, " +currentHeir.name+", will take the throne. There is only 1 remaining family member, "+extraAliveMembers[0].name+", so they will be your new heir!";
@@ -2430,9 +2456,15 @@ function showDeathDialog(deadMembers, nextStepCallback, causeOfDeath="") {
             };
         }
     }
-    showEventDialog(deathEventImg,
-        deathEventText,
-        "Continue");
+    if (gameOver) {
+        showEventDialog("./media/gameOver.jpg", deathEventText);
+        // disaable continue button, game over
+        document.getElementById("endEventButton1").style.display = "none";
+    } else {
+        showEventDialog("./media/deathOfOldAge.png",
+            deathEventText,
+            "Continue");
+    }
 }
 
 // show event dialog. resets errors, buttons, etc. which must be manually enabled and text filled
@@ -2506,19 +2538,36 @@ function showFamilyTree(condition, titleText) {
             if (!currMember.isAlive) {
                 deadSymbol += "💀 ";
             }
-            newItem.appendChild(document.createTextNode(deadSymbol + currMember.name + " ("+currMember.age+"yrs)"));
+            let nameText = document.createElement("p");
+            nameText.appendChild(document.createTextNode(deadSymbol + currMember.name + " ("+currMember.age+"yrs)"));
+            nameText.style.margin = "0px 0px 0px 30%";
+            nameText.style.width = "100%";
+            newItem.appendChild(nameText);
+            // newItem.appendChild(document.createTextNode(deadSymbol + currMember.name + " ("+currMember.age+"yrs)"));
             newItem.style.fontSize = "30px";
             newItem.style.marginLeft = (currNode.depth * 12) + "%";
             // if married, show nation flag married to.
             if (!(currMember.spouse===null)) {
                 let marriageFlag = document.createElement('img');
                 marriageFlag.src = currMember.spouse.flagUrl;
-                marriageFlag.style.height = "20px";
-                marriageFlag.style.width = "20px";
+                marriageFlag.style.height = "30px";
+                marriageFlag.style.width = "30px";
+                marriageFlag.style.float = "right";
                 newItem.appendChild(marriageFlag);
             }
+            // charactericon
+            let iconImgTag = document.createElement('img');
+            iconImgTag.src = currMember.iconUrl;
+            iconImgTag.style.height = "80px";
+            iconImgTag.style.width = "80px";
+            iconImgTag.style.marginLeft = "30%";
+            newItem.appendChild(iconImgTag);
             newItem.appendChild(document.createElement("br"));
-            newItem.appendChild(document.createTextNode("Skill: " + currMember.skillLevel));
+            let skillText = document.createElement("p");
+            skillText.appendChild(document.createTextNode("Skill: " + currMember.skillLevel));
+            skillText.style.margin = "0px 0px 0px 30%";
+            newItem.appendChild(skillText);
+            // newItem.appendChild(document.createTextNode("Skill: " + currMember.skillLevel));
             // when member is clicked, check if it's possible to become heir (giving error messages if not)
             // and then save this selected member for on confirm.
             newItem.onclick = function() {
@@ -2674,9 +2723,9 @@ function birthEventProcessing(allBirths, index) {
     // if this has already happened, change text a little..
     let eventText = "";
     if (index > 0) {
-        eventText = "Congratulations! Another (boy/girl) was born to the family of "+allBirths[index][0].name+"!";
+        eventText = "Congratulations! Another "+((allBirths[index][1].gender===M_GENDER) ? "boy":"girl")+" was born to the family of "+allBirths[index][0].name+"!";
     } else {
-        eventText = "Rejoice! A (boy/girl) was born to the family of "+allBirths[index][0].name+"!";
+        eventText = "Rejoice! A "+((allBirths[index][1].gender===M_GENDER) ? "boy":"girl")+" was born to the family of "+allBirths[index][0].name+"!";
     }
     showEventDialog("./media/birthEvent.png",
         eventText,
@@ -2719,7 +2768,14 @@ function birthPhase() {
             if (famMember.isAlive && (famMember.spouse!==null) && (famMember.age>=16)) {
                 if (Math.random() < BIRTH_CHANCE) {
                     // child has random skill level from 1 to 3;
-                    let newChild = new Character(famMember.name + "Jr.", 0, Math.floor(Math.random()*3)+1);
+                    // and 50% chance to be boy or girl
+                    let gender;
+                    if (Math.floor(Math.random() * 2) === 1) {
+                        gender = M_GENDER;
+                    } else {
+                        gender = F_GENDER;
+                    }
+                    let newChild = new Character("", 0, Math.floor(Math.random()*3)+1, babyIcons[gender], gender);
                     famMember.children.push(newChild);
                     allBirths.push([famMember, newChild]);
                     // if there is no heir currently, make this child new heir
@@ -2751,6 +2807,25 @@ function ageIncreasePhase() {
         let famMember = familyMembers[memberId];
         if (famMember.isAlive) {
             famMember.age += 10;
+            // update icon
+            if (famMember.age < 10) {
+                famMember.iconUrl = babyIcons[famMember.gender];
+            } else if(famMember.age >= 10 && famMember.age < 30) {
+                famMember.iconUrl = kidIcons[famMember.gender];
+            } else {
+                // if adult over 30, choose random icon
+                // IF icon isn already set
+                if (!famMember.iconSet) {
+                    if (famMember.gender === M_GENDER) {
+                        famMember.iconUrl = "./media/king_"+(Math.floor(Math.random()*3)+1)+".png"
+                    } else {
+                        famMember.iconUrl = "./media/queen_"+(Math.floor(Math.random()*3)+1)+".png"
+                    }
+                    famMember.iconSet = true;
+                    // update ruler incase icon changed
+                    updateRuler();
+                }
+            }
             // increasing chance of death after min aging year
             // from 1% to 100% as you approach max age of 101
             if ((famMember.age >= MIN_AGING_YEAR) && ((famMember.age/MAX_AGE) > Math.random())) {
@@ -2805,6 +2880,22 @@ function hasChildrenToEducate() {
         }
     }
     // no child found
+    return false;
+}
+
+// check if became holyRoman Emperor, then end game. otherwise return false
+function becameHolyRomanEmperor() {
+    const province_count = Object.keys(provincesOwned).length;
+    document.getElementById("provinceNumber").textContent = province_count;
+    document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
+    if (dynastyRank === 4) {
+        // if they became holy roman emperor
+        showEventDialog("./media/becameEmperor.jpg",
+            "The realm rejoices! Despite all challenges, your dynasty House "+playerCountry.dynastyName+" thrived! YOU WIN");
+        // disable button, game over
+        document.getElementById("endEventButton1").style.display = "none";
+        return true;
+    }
     return false;
 }
 
@@ -2894,7 +2985,7 @@ function changeRegionControl(region, targetCountry) {
     document.getElementById(region.name).style.fill = targetCountry.color;
     const province_count = Object.keys(provincesOwned).length;
     // show how many left are needed for next level (every time it's three more)
-    document.getElementById("provinceNumber").textContent = province_count+"/"+getRequiredProvinces();
+    document.getElementById("provinceNumber").textContent = province_count;
     // if region is currently being shown, update
     if (chosenRegion.name === region.name) {
         updateCurrentlyShownProvince();
