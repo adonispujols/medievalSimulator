@@ -73,7 +73,7 @@ let ENEMY_INVASION_STRENGTH_RATIO = 0.90;
 let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.1;  // dying to accident
 let SOLDIERS_BETRAY_EVENT_CHANCE = 0.1;  // soldiers betray you and join someone else
 let SOLDIERS_DEFECT_EVENT_CHANCE = 0.1;  // soldiers defect to your cause
-let ENEMY_ATTACK_EVENT_CHANCE = 0.5;     // enemy invasion
+let ENEMY_ATTACK_EVENT_CHANCE = 0.1;     // enemy invasion
 let REBELLION_EVENT_CHANCE = 0.1;
 let RENOWED_TEACHER_EVENT_CHANCE = 0.1;
 let CRUSADE_EVENT_CHANCE = 0.1;
@@ -1371,7 +1371,7 @@ function showInputScreen() {
     var audio = new Audio('media/backrgoundmusic.mp3');
     audio.play();
     audio.loop = true;
-    audio.volume = 0.1;
+    audio.volume = 0.05;
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("initialScreen").style.display = "block";
 
@@ -2768,7 +2768,7 @@ function birthPhase() {
         for (let memberId in familyMembers) {
             let famMember = familyMembers[memberId];
             // if the fam member if alive, married, and over 16, there's an X % chance of making a chlid
-            if (famMember.isAlive && (famMember.spouse!==null) && (famMember.age>=16)) {
+            if (famMember.isAlive && (famMember.spouse!==null) && (famMember.age>=MIN_AGE_BIRTH)) {
                 if (Math.random() < BIRTH_CHANCE) {
                     // child has random skill level from 1 to 3;
                     // and 50% chance to be boy or girl
@@ -2810,7 +2810,6 @@ function ageIncreasePhase() {
         let famMember = familyMembers[memberId];
         if (famMember.isAlive) {
             famMember.age += 10;
-            // update icon
             if (famMember.age < 10) {
                 famMember.iconUrl = babyIcons[famMember.gender];
             } else if(famMember.age >= 10 && famMember.age < 30) {
@@ -2825,10 +2824,9 @@ function ageIncreasePhase() {
                         famMember.iconUrl = "./media/queen_"+(Math.floor(Math.random()*3)+1)+".png"
                     }
                     famMember.iconSet = true;
-                    // update ruler incase icon changed
-                    updateRuler();
                 }
             }
+
             // increasing chance of death after min aging year
             // from 1% to 100% as you approach max age of 101
             if ((famMember.age >= MIN_AGING_YEAR) && ((famMember.age/MAX_AGE) > Math.random())) {
@@ -2837,6 +2835,8 @@ function ageIncreasePhase() {
             }
         }
     }
+    // update ruler incase icon changed
+    updateRuler();
     // if someone died, load show deathDialog
     if (deadMembers.length > 0) {
         showDeathDialog(deadMembers, birthPhase, "from old age");
