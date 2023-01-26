@@ -18,7 +18,7 @@ let INITIAL_RULER_AGE = 40;
 // initial skill level of ruler
 let INITIAL_RULER_SKILL_LEVEL = 2;
 // max skill level that you can educate a child (other than renowed teacher event)
-let MAX_SKILL_LEVEL = 5;
+let MAX_SKILL_LEVEL = 6;
 // max age you can live (die when you reach max age)
 let MAX_AGE = 101;
 // min age you have to be to start dying of old age
@@ -26,13 +26,13 @@ let MIN_AGING_YEAR = 60;
 // min age to be to try to assassinate someone
 let MIN_ASSASSIN_AGE = 16;
 // max soliers to lose from disease
-let MAX_SOLDIERS_LOST_DISEASE = 600;
+let MAX_SOLDIERS_LOST_DISEASE = 400;
 // min soliers to lose from disease
-let MIN_SOLDIERS_LOST_DISEASE =  300;
+let MIN_SOLDIERS_LOST_DISEASE =  200;
 // max soliers lost or gained from betrayal
-let MAX_SOLDIERS_BETRAY = 600;
+let MAX_SOLDIERS_BETRAY = 400;
 // min soliers lost or gained from betrayal
-let MIN_SOLDIERS_BETRAY =  400;
+let MIN_SOLDIERS_BETRAY =  200;
 // what max percentage of soldiers can defect from event (if random num was greater than total soldiers owned)
 let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 // what closest multiple (like 50) will soldiers be rounded to in disease, betrayal, etc
@@ -620,727 +620,727 @@ let regions = {
     "Leon" : {
         name : "Leon",
         countryOwner: Leon,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Toledo"  : {
         name : "Toledo",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Castilla"  : {
         name : "Castilla",
         countryOwner: Castille,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Alcala"  : {
         name : "Alcala",
         countryOwner: Castille,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Aragon"  : {
         name : "Aragon",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Navaare"  : {
         name : "Navaare",
         countryOwner: Castille,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Asturia"  : {
         name : "Asturia",
         countryOwner: Leon,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Galicia"  : {
         name : "Galicia",
         countryOwner: Galicia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Minho"  : {
         name : "Minho",
         countryOwner: Galicia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Beira"  : {
         name : "Beira",
         countryOwner: Galicia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Lisbon"  : {
         name : "Lisbon",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Alemetejo"  : {
         name : "Alemetejo",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Estremadura"  : {
         name : "Estremadura",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Andalusia"  : {
         name : "Andalusia",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Algeciras"  : {
         name : "Algeciras",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Granada"  : {
         name : "Granada",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Murcia"  : {
         name : "Murcia",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Balansiyya"  : {
         name : "Balansiyya",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Catalonia"  : {
         name : "Catalonia",
         countryOwner: Barcelona,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Pyrenees"  : {
         name : "Pyrenees",
         countryOwner: Barcelona,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Balearic-Islands"  : {
         name : "Balearic-Islands",
         countryOwner: Granada,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Languedoc"  : {
         name : "Languedoc",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Gascony"  : {
         name : "Gascony",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Guyenne"  : {
         name : "Guyenne",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Auvergne"  : {
         name : "Auvergne",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Provence"  : {
         name : "Provence",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Savoy"  : {
         name : "Savoy",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Piedmont"  : {
         name : "Piedmont",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Genoa"  : {
         name : "Genoa",
         countryOwner: Genoa,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Pisa"  : {
         name : "Pisa",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Ravenna"  : {
         name : "Ravenna",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Roma"  : {
         name : "Roma",
         countryOwner: Papal,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Naples"  : {
         name : "Naples",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Apulia"  : {
         name : "Apulia",
         countryOwner: Apulia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sicily"  : {
         name : "Sicily",
         countryOwner: Apulia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sardinia"  : {
         name : "Sardinia",
         countryOwner: Sardinia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Corsica"  : {
         name : "Corsica",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Burgundy"  : {
         name : "Burgundy",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Blois"  : {
         name : "Blois",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Anjou"  : {
         name : "Anjou",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Brittany"  : {
         name : "Brittany",
         countryOwner: Brittany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Normandy"  : {
         name : "Normandy",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Poitou"  : {
         name : "Poitou",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Paris"  : {
         name : "Paris",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Amiens"  : {
         name : "Amiens",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Champagne"  : {
         name : "Champagne",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Alsace-Lorraine"  : {
         name : "Alsace-Lorraine",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Franche-Comte"  : {
         name : "Franche-Comte",
         countryOwner: France,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Switzerland"  : {
         name : "Switzerland",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Lombardy"  : {
         name : "Lombardy",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Venice"  : {
         name : "Venice",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tyrol"  : {
         name : "Tyrol",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bavaria"  : {
         name : "Bavaria",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Wurttemburg"  : {
         name : "Wurttemburg",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Baden"  : {
         name : "Baden",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Westphalia"  : {
         name : "Westphalia",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Palatinate"  : {
         name : "Palatinate",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Toxandria"  : {
         name : "Toxandria",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Flanders"  : {
         name : "Flanders",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Holand"  : {
         name : "Holand",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Hannover"  : {
         name : "Hannover",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Hesse-Kassel"  : {
         name : "Hesse-Kassel",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Brunswick"  : {
         name : "Brunswick",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Schleswig-Holstein"  : {
         name : "Schleswig-Holstein",
         countryOwner: Denmark,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Denmark"  : {
         name : "Denmark",
         countryOwner: Denmark,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Copenhagen"  : {
         name : "Copenhagen",
         countryOwner: Denmark,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tangier"  : {
         name : "Tangier",
         countryOwner: Almoravid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Ifni"  : {
         name : "Ifni",
         countryOwner: Almoravid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Fez"  : {
         name : "Fez",
         countryOwner: Almoravid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Oran"  : {
         name : "Oran",
         countryOwner: Almoravid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Algiers"  : {
         name : "Algiers",
         countryOwner: Almoravid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bona"  : {
         name : "Bona",
         countryOwner: Zirid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tunis"  : {
         name : "Tunis",
         countryOwner: Zirid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tunisia"  : {
         name : "Tunisia",
         countryOwner: Zirid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sahara"  : {
         name : "Sahara",
         countryOwner: Maghrawavid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tripolis"  : {
         name : "Tripolis",
         countryOwner: Zirid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Cyrenicia"  : {
         name : "Cyrenicia",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Al-Baretoun"  : {
         name : "Al-Baretoun",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Alexandria"  : {
         name : "Alexandria",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Cairo"  : {
         name : "Cairo",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sinai"  : {
         name : "Sinai",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Mecca"  : {
         name : "Mecca",
         countryOwner: Hashimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Darum"  : {
         name : "Darum",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Arabia"  : {
         name : "Arabia",
         countryOwner: Hashimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Baghdad"  : {
         name : "Baghdad",
         countryOwner: Hashimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Amman"  : {
         name : "Amman",
         countryOwner: Fatimid,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tell-Bashir"  : {
         name : "Tell-Bashir",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Cyprus"  : {
         name : "Cyprus",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Kurdistan"  : {
         name : "Kurdistan",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Aremenia"  : {
         name : "Aremenia",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Mingrelia"  : {
         name : "Mingrelia",
         countryOwner: Cumania,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sivas"  : {
         name : "Sivas",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Trebizond"  : {
         name : "Trebizond",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Cicilia"  : {
         name : "Cicilia",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Caramania"  : {
         name : "Caramania",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sinope"  : {
         name : "Sinope",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Nicea"  : {
         name : "Nicea",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Hamid"  : {
         name : "Hamid",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Tekke"  : {
         name : "Tekke",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Menteshe"  : {
         name : "Menteshe",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Kerassi"  : {
         name : "Kerassi",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Crete"  : {
         name : "Crete",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Greece"  : {
         name : "Greece",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Thessaly"  : {
         name : "Thessaly",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Crotia"  : {
         name : "Crotia",
         countryOwner: Croatia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Serbia"  : {
         name : "Serbia",
         countryOwner: Serbia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Avlonas"  : {
         name : "Avlonas",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Astibus"  : {
         name : "Astibus",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Constantinople"  : {
         name : "Constantinople",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Nikopolis"  : {
         name : "Nikopolis",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bononia"  : {
         name : "Bononia",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Wallachia"  : {
         name : "Wallachia",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Dobruja"  : {
         name : "Dobruja",
         countryOwner: Byzantine,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Istria"  : {
         name : "Istria",
         countryOwner: Croatia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Carniola"  : {
         name : "Carniola",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Carinthia"  : {
         name : "Carinthia",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Styria"  : {
         name : "Styria",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Vienna"  : {
         name : "Vienna",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Niederosterreich"  : {
         name : "Niederosterreich",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Slavonia"  : {
         name : "Slavonia",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Burgenland"  : {
         name : "Burgenland",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Banat"  : {
         name : "Banat",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bihar"  : {
         name : "Bihar",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Transylvania"  : {
         name : "Transylvania",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Moldavia"  : {
         name : "Moldavia",
         countryOwner: Pechenegs,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bessarabia"  : {
         name : "Bessarabia",
         countryOwner: Pechenegs,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Podolia"  : {
         name : "Podolia",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Red-Rus"  : {
         name : "Red-Rus",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Austrian-Galicia"  : {
         name : "Austrian-Galicia",
         countryOwner: Hungary,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Moravia"  : {
         name : "Moravia",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bohemia"  : {
         name : "Bohemia",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Saxony"  : {
         name : "Saxony",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Silesia"  : {
         name : "Silesia",
         countryOwner: Poland,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Berlin"  : {
         name : "Berlin",
         countryOwner: Germany,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Poznan"  : {
         name : "Poznan",
         countryOwner: Poland,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Grodno"  : {
         name : "Grodno",
         countryOwner: Poland,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Mazonia"  : {
         name : "Mazonia",
         countryOwner: Pruthenia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Obotritia"  : {
         name : "Obotritia",
         countryOwner: Obotritia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Pomeria"  : {
         name : "Pomeria",
         countryOwner: Pomeria,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Stettin"  : {
         name : "Stettin",
         countryOwner: Pomeria,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Neumark"  : {
         name : "Neumark",
         countryOwner: Pruthenia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Lithunia"  : {
         name : "Lithunia",
         countryOwner: Pruthenia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Kurland"  : {
         name : "Kurland",
         countryOwner: Pruthenia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Lavonia"  : {
         name : "Lavonia",
         countryOwner: Estonia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Estonia"  : {
         name : "Estonia",
         countryOwner: Estonia,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Scania"  : {
         name : "Scania",
         countryOwner: Denmark,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Sweden"  : {
         name : "Sweden",
         countryOwner: Sweden,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Vasterbotten"  : {
         name : "Vasterbotten",
         countryOwner: Sweden,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Norway"  : {
         name : "Norway",
         countryOwner: Norway,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Suomi"  : {
         name : "Suomi",
         countryOwner: Suomi,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Black-Rus"  : {
         name : "Black-Rus",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Podlesia"  : {
         name : "Podlesia",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Volhynia"  : {
         name : "Volhynia",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Little-Rus"  : {
         name : "Little-Rus",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Korsun"  : {
         name : "Korsun",
         countryOwner: Pechenegs,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Jedisan"  : {
         name : "Jedisan",
         countryOwner: Pechenegs,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "White-Rus"  : {
         name : "White-Rus",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Smolensk"  : {
         name : "Smolensk",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Chernigov"  : {
         name : "Chernigov",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Carelia"  : {
         name : "Carelia",
         countryOwner: Suomi,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Nyenschantz"  : {
         name : "Nyenschantz",
         countryOwner: Suomi,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Novgorod"  : {
         name : "Novgorod",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Moscow"  : {
         name : "Moscow",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Muscovy"  : {
         name : "Muscovy",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Poltawa"  : {
         name : "Poltawa",
         countryOwner: Rus,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Kherson"  : {
         name : "Kherson",
         countryOwner: Cumania,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Circassia"  : {
         name : "Circassia",
         countryOwner: Cumania,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Crimea"  : {
         name : "Crimea",
         countryOwner: Crimea,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Kent"  : {
         name : "Kent",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Bath"  : {
         name : "Bath",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Wales"  : {
         name : "Wales",
         countryOwner: Wales,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Oxford"  : {
         name : "Oxford",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Essex"  : {
         name : "Essex",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "York"  : {
         name : "York",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Leix"  : {
         name : "Leix",
         countryOwner: Leix,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Munster"  : {
         name : "Munster",
         countryOwner: Leix,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Connaught"  : {
         name : "Connaught",
         countryOwner: Muaidhe,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Ulster"  : {
         name : "Ulster",
         countryOwner: Muaidhe,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Durham"  : {
         name : "Durham",
         countryOwner: England,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Scotland"  : {
         name : "Scotland",
         countryOwner: Scotland,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }, "Iceland"  : {
         name : "Iceland",
         countryOwner: Iceland,
-        soldiers : DEFAULT_PROVINCE_SOLDIERS
+        soldiers : Math.floor(Math.random() * (MAX_PROVINCE_SOLDIERS - MIN_PROVINCE_SOLDIERS) + MIN_PROVINCE_SOLDIERS)
     }
 };
 
@@ -2583,7 +2583,7 @@ function showFamilyTree(condition, titleText) {
                             showFamilyErrorText("You cannot educate your current ruler!");
                         } else if (currMember.age > MAX_EDUCATE_AGE) {
                             showFamilyErrorText("Child age cannot be over "+MAX_EDUCATE_AGE+" years!");
-                        } else if (currMember.skillLevel > MAX_SKILL_LEVEL) {
+                        } else if (currMember.skillLevel >= MAX_SKILL_LEVEL) {
                             showFamilyErrorText("Child skill is already at Max Level "+MAX_SKILL_LEVEL+"!");
                         } else {
                             swapFamilyTreeSelectedMember(this, currMember);
