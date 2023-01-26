@@ -8,7 +8,7 @@
 // initial starting year
 let START_YEAR = 1066;
 // initial soldiers of kingdom
-let INITIAL_PLAYER_SOLDIERS = 1050;
+let INITIAL_PLAYER_SOLDIERS = 1000;
 // provinces required to level up to Duke, King, or Emperor (events can adjust this)
 let REQUIRED_PROVINCES_DUKE = 4;
 let REQUIRED_PROVINCES_KING = 7;
@@ -16,7 +16,7 @@ let REQUIRED_PROVINCES_EMPEROR = 10;
 // starting age of ruler
 let INITIAL_RULER_AGE = 40;
 // initial skill level of ruler
-let INITIAL_RULER_SKILL_LEVEL = 1;
+let INITIAL_RULER_SKILL_LEVEL = 2;
 // max skill level that you can educate a child (other than renowed teacher event)
 let MAX_SKILL_LEVEL = 5;
 // max age you can live (die when you reach max age)
@@ -26,13 +26,13 @@ let MIN_AGING_YEAR = 60;
 // min age to be to try to assassinate someone
 let MIN_ASSASSIN_AGE = 16;
 // max soliers to lose from disease
-let MAX_SOLDIERS_LOST_DISEASE = 300;
+let MAX_SOLDIERS_LOST_DISEASE = 600;
 // min soliers to lose from disease
-let MIN_SOLDIERS_LOST_DISEASE =  100;
+let MIN_SOLDIERS_LOST_DISEASE =  300;
 // max soliers lost or gained from betrayal
-let MAX_SOLDIERS_BETRAY = 300;
+let MAX_SOLDIERS_BETRAY = 600;
 // min soliers lost or gained from betrayal
-let MIN_SOLDIERS_BETRAY =  100;
+let MIN_SOLDIERS_BETRAY =  400;
 // what max percentage of soldiers can defect from event (if random num was greater than total soldiers owned)
 let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 // what closest multiple (like 50) will soldiers be rounded to in disease, betrayal, etc
@@ -49,7 +49,7 @@ let OPINION_REQUIRED_VASSAL = 75;
 // every soldier you have greater than enemy province adds opinion * multiplier
 let GREATER_STRENGTH_OPINION_MULTIPLIER = 0.05;
 // default soldiers for all nonplayer provinces
-let DEFAULT_PROVINCE_SOLDIERS = 500;
+let DEFAULT_PROVINCE_SOLDIERS = 1000;
 // percentage of total soldiers that rebel forces will have
 let REBELLION_STRENGTH_PERCENTAGE = 0.20;
 // amount of soldiers trained from button
@@ -57,7 +57,7 @@ let SOLDIERS_TRAIN_AMOUNT = 100;
 // must be at least this age (16) to give bith if married
 let MIN_AGE_BIRTH = 16;
 // chance (from 0 to 1) of birthing a child
-let BIRTH_CHANCE = 0.5;
+let BIRTH_CHANCE = 0.7;
 // mininum total rolls to rank up as count from crusade event
 let CRUSADE_ROLL_COUNT = 100;
 // mininum total rolls to rank up as duke from crusade event
@@ -65,15 +65,15 @@ let CRUSADE_ROLL_DUKE =  200;
 // mininum total rolls to rank up as king from crusade event
 let CRUSADE_ROLL_KING = 400;
 // strength of rando menemy invasion (percentage of initial soldier amount). set to half for now
-let ENEMY_INVASION_STRENGTH_RATIO = 0.5;
+let ENEMY_INVASION_STRENGTH_RATIO = 0.9;
 // CHANCES OF EVENTS HAPPENING:
-let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.1;  // dying to accident
+let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.4;  // dying to accident
 let SOLDIERS_BETRAY_EVENT_CHANCE = 0.1;  // soldiers betray you and join someone else
 let SOLDIERS_DEFECT_EVENT_CHANCE = 0.1;  // soldiers defect to your cause
-let ENEMY_ATTACK_EVENT_CHANCE = 0.1;     // enemy invasion
-let REBELLION_EVENT_CHANCE = 0.1;
+let ENEMY_ATTACK_EVENT_CHANCE = 0.5;     // enemy invasion
+let REBELLION_EVENT_CHANCE = 0.5;
 let RENOWED_TEACHER_EVENT_CHANCE = 0.1;
-let CRUSADE_EVENT_CHANCE = 0.1;
+let CRUSADE_EVENT_CHANCE = 0.3;
 let DISEASE_KILLS_MEMBER_EVENT_CHANCE = 0.1;    // family member dies to disease
 let DISEASE_KILLS_SOLDIERS_EVENT_CHANCE = 0.1;
 let ASSASSINATION_BY_MEMBER_EVENT_CHANCE = 0.1;   // family member assassinates someone
