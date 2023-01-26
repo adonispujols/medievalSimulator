@@ -38,6 +38,9 @@ let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 // what closest multiple (like 50) will soldiers be rounded to in disease, betrayal, etc
 // if 50, then it's 100, 150, 200 etc. if 10 it's 110,120,130. if 1 then 111,112,113, etc.
 let SOLDIERS_EVENT_MULTIPLE =  50;
+let MAX_PROVINCE_SOLDIERS = 750;
+let MIN_PROVINCE_SOLDIERS =  600;
+// let SOLDIERS_EVENT_MULTIPLE =  50;
 // highest age you can educate a child
 let MAX_EDUCATE_AGE =  20;
 // opinion loss from attacking a nation/provinces
@@ -49,15 +52,15 @@ let OPINION_REQUIRED_VASSAL = 75;
 // every soldier you have greater than enemy province adds opinion * multiplier
 let GREATER_STRENGTH_OPINION_MULTIPLIER = 0.05;
 // default soldiers for all nonplayer provinces
-let DEFAULT_PROVINCE_SOLDIERS = 1000;
+let DEFAULT_PROVINCE_SOLDIERS = 750;
 // percentage of total soldiers that rebel forces will have
-let REBELLION_STRENGTH_PERCENTAGE = 0.20;
+let REBELLION_STRENGTH_PERCENTAGE = 0.80;
 // amount of soldiers trained from button
 let SOLDIERS_TRAIN_AMOUNT = 100;
 // must be at least this age (16) to give bith if married
 let MIN_AGE_BIRTH = 16;
 // chance (from 0 to 1) of birthing a child
-let BIRTH_CHANCE = 0.7;
+let BIRTH_CHANCE = 0.5;
 // mininum total rolls to rank up as count from crusade event
 let CRUSADE_ROLL_COUNT = 100;
 // mininum total rolls to rank up as duke from crusade event
@@ -65,15 +68,15 @@ let CRUSADE_ROLL_DUKE =  200;
 // mininum total rolls to rank up as king from crusade event
 let CRUSADE_ROLL_KING = 400;
 // strength of rando menemy invasion (percentage of initial soldier amount). set to half for now
-let ENEMY_INVASION_STRENGTH_RATIO = 0.9;
+let ENEMY_INVASION_STRENGTH_RATIO = 0.90;
 // CHANCES OF EVENTS HAPPENING:
-let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.4;  // dying to accident
+let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.1;  // dying to accident
 let SOLDIERS_BETRAY_EVENT_CHANCE = 0.1;  // soldiers betray you and join someone else
 let SOLDIERS_DEFECT_EVENT_CHANCE = 0.1;  // soldiers defect to your cause
 let ENEMY_ATTACK_EVENT_CHANCE = 0.5;     // enemy invasion
-let REBELLION_EVENT_CHANCE = 0.5;
+let REBELLION_EVENT_CHANCE = 0.1;
 let RENOWED_TEACHER_EVENT_CHANCE = 0.1;
-let CRUSADE_EVENT_CHANCE = 0.3;
+let CRUSADE_EVENT_CHANCE = 0.1;
 let DISEASE_KILLS_MEMBER_EVENT_CHANCE = 0.1;    // family member dies to disease
 let DISEASE_KILLS_SOLDIERS_EVENT_CHANCE = 0.1;
 let ASSASSINATION_BY_MEMBER_EVENT_CHANCE = 0.1;   // family member assassinates someone
@@ -1762,7 +1765,7 @@ function askVassal() {
                 }
             };
             document.getElementById("endEventButton2").style.display = "block";
-            document.getElementById("endEventButton2").value = "Cancel";
+            document.getElementById("endEventButton2").textContent = "Cancel";
             // on cancel just reset everything
             document.getElementById("endEventButton2").onclick = function() {
                 document.getElementById("eventDialog").style.display = "none";
