@@ -26,13 +26,13 @@ let MIN_AGING_YEAR = 60;
 // min age to be to try to assassinate someone
 let MIN_ASSASSIN_AGE = 16;
 // max soliers to lose from disease
-let MAX_SOLDIERS_LOST_DISEASE = 400;
+let MAX_SOLDIERS_LOST_DISEASE = 300;
 // min soliers to lose from disease
-let MIN_SOLDIERS_LOST_DISEASE =  200;
+let MIN_SOLDIERS_LOST_DISEASE =  150;
 // max soliers lost or gained from betrayal
-let MAX_SOLDIERS_BETRAY = 400;
+let MAX_SOLDIERS_BETRAY = 300;
 // min soliers lost or gained from betrayal
-let MIN_SOLDIERS_BETRAY =  200;
+let MIN_SOLDIERS_BETRAY =  150;
 // what max percentage of soldiers can defect from event (if random num was greater than total soldiers owned)
 let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 // what closest multiple (like 50) will soldiers be rounded to in disease, betrayal, etc
@@ -54,7 +54,7 @@ let GREATER_STRENGTH_OPINION_MULTIPLIER = 0.05;
 // default soldiers for all nonplayer provinces
 let DEFAULT_PROVINCE_SOLDIERS = 750;
 // percentage of total soldiers that rebel forces will have
-let REBELLION_STRENGTH_PERCENTAGE = 0.80;
+let REBELLION_STRENGTH_PERCENTAGE = 0.40;
 // amount of soldiers trained from button
 let SOLDIERS_TRAIN_AMOUNT = 100;
 // must be at least this age (16) to give bith if married
@@ -68,7 +68,7 @@ let CRUSADE_ROLL_DUKE =  200;
 // mininum total rolls to rank up as king from crusade event
 let CRUSADE_ROLL_KING = 400;
 // strength of rando menemy invasion (percentage of initial soldier amount). set to half for now
-let ENEMY_INVASION_STRENGTH_RATIO = 0.90;
+let ENEMY_INVASION_STRENGTH_RATIO = 0.40;
 // CHANCES OF EVENTS HAPPENING:
 let DEATH_BY_ACCIDENT_EVENT_CHANCE = 0.1;  // dying to accident
 let SOLDIERS_BETRAY_EVENT_CHANCE = 0.1;  // soldiers betray you and join someone else
