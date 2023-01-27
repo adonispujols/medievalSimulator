@@ -63,13 +63,13 @@ let MIN_AGE_BIRTH = 16;
 // chance (from 0 to 1) of birthing a child
 let BIRTH_CHANCE = 0.5;
 // max percentage of soldiers to lose from crusades
-let CRUSADE_MAX_LOSS_PERCENTAGE = 0.30;
+let CRUSADE_MAX_LOSS_PERCENTAGE = 0.50;
 // mininum total rolls to rank up as count from crusade event
-let CRUSADE_ROLL_COUNT = 100;
+let CRUSADE_ROLL_COUNT = 600;
 // mininum total rolls to rank up as duke from crusade event
-let CRUSADE_ROLL_DUKE =  200;
+let CRUSADE_ROLL_DUKE =  800;
 // mininum total rolls to rank up as king from crusade event
-let CRUSADE_ROLL_KING = 400;
+let CRUSADE_ROLL_KING = 1000;
 // strength of rando menemy invasion (percentage of initial soldier amount). set to half for now
 let ENEMY_INVASION_STRENGTH_RATIO = 0.40;
 // CHANCES OF EVENTS HAPPENING:
@@ -79,7 +79,7 @@ let SOLDIERS_DEFECT_EVENT_CHANCE = 0.1;  // soldiers defect to your cause
 let ENEMY_ATTACK_EVENT_CHANCE = 0.1;     // enemy invasion
 let REBELLION_EVENT_CHANCE = 0.1;
 let RENOWED_TEACHER_EVENT_CHANCE = 0.1;
-let CRUSADE_EVENT_CHANCE = 0.1;
+let CRUSADE_EVENT_CHANCE = 0.05;
 let DISEASE_KILLS_MEMBER_EVENT_CHANCE = 0.1;    // family member dies to disease
 let DISEASE_KILLS_SOLDIERS_EVENT_CHANCE = 0.1;
 let ASSASSINATION_BY_MEMBER_EVENT_CHANCE = 0.1;   // family member assassinates someone
