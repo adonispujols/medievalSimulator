@@ -1731,7 +1731,7 @@ function askVassal() {
             document.getElementById("regionSelectBottomBar").style.display = "none";
 
             showEventDialog("./media/askingVassal.jpg",
-                "You can ask the local lord at "+currChosenRegion.name+"to become your vassal. If the province + nation's opinion is >= "+OPINION_REQUIRED_VASSAL+" you will own the province. Having more soldiers increases province opinion, marrying increases national opinion but attacking decreases national opinion. Their Opinion: "+getTrueOpinion(currChosenRegion)+".",
+                "You can ask the local lord at "+currChosenRegion.name+" to become your vassal. If the province + nation's opinion is >= "+OPINION_REQUIRED_VASSAL+" you will own the province. Having more soldiers increases province opinion, marrying increases national opinion but attacking decreases national opinion. Their Opinion: "+getTrueOpinion(currChosenRegion)+".",
                 "Continue");
             // trigger victory/loss dialog
             // if ranked up, show rank up screen (aand maybe show gameover if rankedup high enough)
@@ -2039,7 +2039,7 @@ function endTurn() {
         // Renowned teacher joins your court (+1 to skill level of a select child for free)
         // it can go over lvl 5 limit
         showEventDialog("./media/teacherArrives.png",
-            "A great teacher has decided to join your royal court to educate the next generation rulers of "+playerCountry.name+"! The selected child will earn +1 Skill Level (and ignore level cap of "+MAX_SKILL_LEVEL+").",
+            "A great teacher has decided to join your royal court to educate the next generation's rulers of House "+playerCountry.dynastyName+"! The selected child will earn +1 Skill Level (and ignore level cap of "+MAX_SKILL_LEVEL+").",
             "Continue");
         document.getElementById("endEventButton1").onclick = function() {
             document.getElementById("eventDialog").style.display = "none";
@@ -2900,6 +2900,7 @@ function becameHolyRomanEmperor() {
     const province_count = Object.keys(provincesOwned).length;
     document.getElementById("provinceNumber").textContent = "Provinces: "+province_count;
     document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
+    updateRuler();
     if (dynastyRank === 4) {
         // if they became holy roman emperor
         showEventDialog("./media/becameEmperor.jpg",
