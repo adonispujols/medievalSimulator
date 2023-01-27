@@ -10,9 +10,9 @@ let START_YEAR = 1066;
 // initial soldiers of kingdom
 let INITIAL_PLAYER_SOLDIERS = 1000;
 // provinces required to level up to Duke, King, or Emperor (events can adjust this)
-let REQUIRED_PROVINCES_DUKE = 4;
-let REQUIRED_PROVINCES_KING = 7;
-let REQUIRED_PROVINCES_EMPEROR = 10;
+let REQUIRED_PROVINCES_DUKE = 5;
+let REQUIRED_PROVINCES_KING = 9;
+let REQUIRED_PROVINCES_EMPEROR = 13;
 // starting age of ruler
 let INITIAL_RULER_AGE = 40;
 // initial skill level of ruler
@@ -2110,9 +2110,9 @@ function endTurn() {
                 if (rankedup) {
                     dynastyRank++;
                     // crusade lets you skip a title, so you don't need as many provinces
-                    REQUIRED_PROVINCES_DUKE -= 3;
-                    REQUIRED_PROVINCES_KING -= 3;
-                    REQUIRED_PROVINCES_EMPEROR -= 3;
+                    REQUIRED_PROVINCES_DUKE -= 4;
+                    REQUIRED_PROVINCES_KING -= 4;
+                    REQUIRED_PROVINCES_EMPEROR -= 4;
                     showEventDialog("./media/crusadeVictory.png",
                         "Your soldiers fought valiantly, and impressed the Pope! You lost "+soldierLosses+" soldiers! Your title will rank up to a: " +getDynastyRankString()+"!",
                         "Continue");
