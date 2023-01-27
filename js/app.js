@@ -1521,12 +1521,13 @@ function trainSoldiers() {
     showEventDialog("./media/trainedSoldiers.jpg",
         "You recruited: " + SOLDIERS_TRAIN_AMOUNT + " soldiers!",
         "May they bring us glory.");
-
     // update all values
     document.getElementById("endEventButton1").onclick = function() {
         document.getElementById("eventDialog").style.display = "none";
         playerSoldiers += SOLDIERS_TRAIN_AMOUNT;
         document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
+        // updates to new opinion
+        updateCurrentlyShownProvince();
         incrementActionsTaken();
     };
 }
@@ -2246,9 +2247,9 @@ function endTurn() {
         // TODO IMPLEMENT DYNASTY HAS DIED/FALLEN EVENT! (and label them as "Dead" or gone etc in data)
         //   label as dead so we don't use their name in events!
         if (deadMember === currentRuler) {
-            eventText = "You, "+deadMember.name+", have lost your life to the scheming of the "+countries[Math.floor(Math.random()*countries.length)].name+"! An assassin slipped into your chambers while you slept, paid for by "+countries[Math.floor(Math.random()*countries.length)].name+".";
+            eventText = "You, "+deadMember.name+", have lost your life to the scheming of the "+countries[Math.floor(Math.random()*countries.length)].name+"! An assassin slipped into your chambers while you slept, paid for by the "+countries[Math.floor(Math.random()*countries.length)].name+".";
         } else {
-            eventText = "Your relative, "+deadMember.name+", has lost their life to the scheming of the "+countries[Math.floor(Math.random()*countries.length)].name+"! An assassin slipped into their chambers while they slept, paid for by "+countries[Math.floor(Math.random()*countries.length)].name+".";
+            eventText = "Your relative, "+deadMember.name+", has lost their life to the scheming of the "+countries[Math.floor(Math.random()*countries.length)].name+"! An assassin slipped into their chambers while they slept, paid for by the "+countries[Math.floor(Math.random()*countries.length)].name+".";
         }
         showEventDialog("./media/assassinationByOtherDynasty.png",
             eventText,
