@@ -348,10 +348,10 @@ button:disabled {
   background-size: 100% 113%;
   background-repeat: no-repeat;
   height: 94%;
-  width: 70%;
-  position: fixed;
+  width: 209%;
+  position: absolute;
   top: 0%;
-  left: 15%;
+  left: 31%;
 }
 
 .innerEventContentBoundary {
@@ -403,7 +403,7 @@ button:disabled {
 
 
 .eventTextBox {
-  height: 32%;
+  height: 26%;
   background-color: wheat;
   border-width: 8px;
   border-style: ridge;
