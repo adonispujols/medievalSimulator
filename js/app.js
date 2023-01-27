@@ -18,7 +18,7 @@ let INITIAL_RULER_AGE = 40;
 // initial skill level of ruler
 let INITIAL_RULER_SKILL_LEVEL = 2;
 // max skill level that you can educate a child (other than renowed teacher event)
-let MAX_SKILL_LEVEL = 6;
+let MAX_SKILL_LEVEL = 5;
 // max age you can live (die when you reach max age)
 let MAX_AGE = 101;
 // min age you have to be to start dying of old age
