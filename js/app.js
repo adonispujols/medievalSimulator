@@ -40,7 +40,7 @@ let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 let SOLDIERS_EVENT_MULTIPLE =  50;
 let MAX_PROVINCE_SOLDIERS = 750;
 let MIN_PROVINCE_SOLDIERS =  600;
-let MAX_OPINION_PROVINCES =  20;
+let MAX_STARTING_PROVINCE_OPINION =  20;
 // let SOLDIERS_EVENT_MULTIPLE =  50;
 // highest age you can educate a child
 let MAX_EDUCATE_AGE =  20;
@@ -328,280 +328,280 @@ let Rebels = {
 let France = {
         name : FRANCE,
         flagUrl: FRANCE_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#0000f3",
         dynastyName : FRANCE_DYNASTY
 };
 let England = {
         name : ENGLAND,
         flagUrl: ENGLAND_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff0000",
         dynastyName : ENGLAND_DYNASTY
 };
 let Wales = {
         name : WALES,
         flagUrl: WALES_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#abc335",
         dynastyName : WALES_DYNASTY
 };
 let Germany = {
         name : GERMANY,
         flagUrl: GERMANY_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#f2f2f2",
         dynastyName : GERMANY_DYNASTY
 };
 let Scotland = {
         name : SCOTLAND,
         flagUrl: SCOTLAND_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#00009c",
         dynastyName : SCOTLAND_DYNASTY
 };
 let Sweden = {
         name : SWEDEN,
         flagUrl: SWEDEN_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#0f2af0",
         dynastyName : SWEDEN_DYNASTY
 };
 let Norway = {
         name : NORWAY,
         flagUrl: NORWAY_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#8086e6",
         dynastyName : NORWAY_DYNASTY
 };
 let Denmark = {
         name : DENMARK,
         flagUrl: DENMARK_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff5c06",
         dynastyName : DENMARK_DYNASTY
 };
 let Iceland = {
         name : ICELAND,
         flagUrl: ICELAND_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#cccccc",
         dynastyName : ICELAND_DYNASTY
 };
 let Brittany = {
         name : BRITTANY,
         flagUrl: BRITTANY_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#953a3a",
         dynastyName : BRITTANY_DYNASTY
 };
 let Muaidhe = {
         name : MUAIDHE,
         flagUrl: MUAIDHE_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#3fe33f",
         dynastyName : MUAIDHE_DYNASTY
 };
 let Leix = {
         name : LEIX,
         flagUrl: LEIX_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#008000",
         dynastyName : LEIX_DYNASTY
 };
 let Obotritia = {
         name : OBOTRITIA,
         flagUrl: OBOTRITIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#c87137",
         dynastyName : OBOTRITIA_DYNASTY
 };
 let Pomeria = {
         name : POMERIA,
         flagUrl: POMERIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#008000",
         dynastyName : POMERIA_DYNASTY
 };
 let Pruthenia = {
         name : PRUTHENIA,
         flagUrl: PRUTHENIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#771f1a",
         dynastyName : PRUTHENIA_DYNASTY
 };
 let Estonia = {
         name : ESTONIA,
         flagUrl: ESTONIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#aa335d",
         dynastyName : ESTONIA_DYNASTY
 };
 let Poland = {
         name : POLAND,
         flagUrl: POLAND_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ce0000",
         dynastyName : POLAND_DYNASTY
 };
 let Hungary = {
         name : HUNGARY,
         flagUrl: HUNGARY_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#f5816a",
         dynastyName : HUNGARY_DYNASTY
 };
 let Suomi = {
         name : SUOMI,
         flagUrl: SUOMI_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#713f1f",
         dynastyName : SUOMI_DYNASTY
 };
 let Rus = {
         name : RUS,
         flagUrl: RUS_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#00ab1f",
         dynastyName : RUS_DYNASTY
 };
 let Pechenegs = {
         name : PECHENEGS,
         flagUrl: PECHENEGS_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff7f2a",
         dynastyName : PECHENEGS_DYNASTY
 };
 let Crimea = {
         name : CRIMEA,
         flagUrl: CRIMEA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff2a2a",
         dynastyName : CRIMEA_DYNASTY
 };
 let Cumania = {
         name : CUMANIA,
         flagUrl: CUMANIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ffaaaa",
         dynastyName : CUMANIA_DYNASTY
 };
 let Croatia = {
         name : CROATIA,
         flagUrl: CROATIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#402440",
         dynastyName : CROATIA_DYNASTY
 };
 let Serbia = {
         name : SERBIA,
         flagUrl: SERBIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#6c5353",
         dynastyName : SERBIA_DYNASTY
 };
 let Byzantine = {
         name : BYZANTINE,
         flagUrl: BYZANTINE_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#800060",
         dynastyName : BYZANTINE_DYNASTY
 };
 let Genoa = {
         name : GENOA,
         flagUrl: GENOA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff5555",
         dynastyName : GENOA_DYNASTY
 };
 let Papal = {
         name : PAPAL,
         flagUrl: PAPAL_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ffc654",
         dynastyName : PAPAL_DYNASTY
 };
 let Apulia = {
         name : APULIA,
         flagUrl: APULIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#a8c13c",
         dynastyName : APULIA_DYNASTY
 };
 let Sardinia = {
         name : SARDINIA,
         flagUrl: SARDINIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#008080",
         dynastyName : SARDINIA_DYNASTY
 };
 let Galicia = {
         name : GALICIA,
         flagUrl: GALICIA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ffaaaa",
         dynastyName : GALICIA_DYNASTY
 };
 let Leon = {
         name : LEON,
         flagUrl: LEON_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#ff7f2a",
         dynastyName : LEON_DYNASTY
 };
 let Castille = {
         name : CASTILLE,
         flagUrl: CASTILLE_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#fff916",
         dynastyName : CASTILLE_DYNASTY
 };
 let Barcelona = {
         name : BARCELONA,
         flagUrl: BARCELONA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#691111",
         dynastyName : BARCELONA_DYNASTY
 };
 let Granada = {
         name : GRANADA,
         flagUrl: GRANADA_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#0aff0a",
         dynastyName : GRANADA_DYNASTY
 };
 let Almoravid = {
         name : ALMORAVID,
         flagUrl: ALMORAVID_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#00ff76",
         dynastyName : ALMORAVID_DYNASTY
 };
 let Maghrawavid = {
         name : MAGHRAWAVID,
         flagUrl: MAGHRAWAVID_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#d8d827",
         dynastyName : MAGHRAWAVID_DYNASTY
 };
 let Zirid = {
         name : ZIRID,
         flagUrl: ZIRID_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#0fdd00",
         dynastyName : ZIRID_DYNASTY
 };
 let Fatimid = {
         name : FATIMID,
         flagUrl: FATIMID_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#22dd7f",
         dynastyName : FATIMID_DYNASTY
 };
 let Hashimid = {
         name : HASHIMID,
         flagUrl: HASHIMID_FLAG,
-        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
+        opinion: Math.floor(Math.random()*MAX_STARTING_PROVINCE_OPINION)+1,
         color : "#8eff00",
         dynastyName : HASHIMID_DYNASTY
 };
@@ -1448,7 +1448,7 @@ function loadGame() {
     document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
     document.getElementById("skillLevel").textContent = "Skill: " + INITIAL_RULER_SKILL_LEVEL;
     document.getElementById("actionCount").textContent = "Actions: " + actionsTaken + "/" + INITIAL_RULER_SKILL_LEVEL;
-    document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+    document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
     document.getElementById("currentYear").textContent = "Year: " + currentYear;
     // set chosen region to something for now
     chosenRegion = regions[DEFAULT_STARTING_REGION];
@@ -1526,7 +1526,7 @@ function trainSoldiers() {
     document.getElementById("endEventButton1").onclick = function() {
         document.getElementById("eventDialog").style.display = "none";
         playerSoldiers += SOLDIERS_TRAIN_AMOUNT;
-        document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         incrementActionsTaken();
     };
 }
@@ -1571,7 +1571,7 @@ function attack() {
                             "Your soldiers fought valiantly, and won! "+currChosenRegion.name+" is yours! The enemy still has "+results.remainingEnemySoldiers+" men remaining, compared to your "+results.remainingSoldiersSent+" soldiers sent remaining. You lost "+results.friendlyLosses+" soldiers, and the enemy lost "+results.enemyLosses+"!",
                             "Continue");
                         document.getElementById("endEventButton1").onclick = function() {
-                            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                             changeRegionControl(currChosenRegion, playerCountry);
                             changeOpinion(OPINION_LOSS_ATTACK, currChosenRegion.countryOwner);
                             if (Object.keys(provincesOwned).length === getRequiredProvinces()) {
@@ -1600,7 +1600,7 @@ function attack() {
                             "Continue");
                         changeOpinion(OPINION_LOSS_ATTACK, currChosenRegion.countryOwner);
                         document.getElementById("endEventButton1").onclick = function() {
-                            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                             document.getElementById("eventDialog").style.display = "none";
                             incrementActionsTaken();
                         };
@@ -1673,7 +1673,7 @@ function arrangeMarriage() {
                     document.getElementById("regionSelectBottomBar").style.display = "none";
 
                     showEventDialog("./media/marriage.png",
-                        "Congratulations! "+memberMarrying.name+"has married a noble from the "+currChosenRegion.countryOwner.name+"! May their descendants be glorious! You gain "+OPINION_GAIN_MARRIAGE+" Opinion!",
+                        "Congratulations! "+memberMarrying.name+" has married a noble from the "+currChosenRegion.countryOwner.name+"! May their descendants be glorious! You gain "+OPINION_GAIN_MARRIAGE+" Opinion!",
                         "Continue");
                     document.getElementById("endEventButton1").onclick = function() {
                         memberMarrying.spouse = currChosenRegion.countryOwner;
@@ -1869,7 +1869,7 @@ function endTurn() {
             "Continue");
         document.getElementById("endEventButton1").onclick = function() {
             document.getElementById("eventDialog").style.display = "none";
-            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
             // update open province view if it's this random region
             if (chosenRegion === randomRegion) {
                 updateCurrentlyShownProvince();
@@ -1901,7 +1901,7 @@ function endTurn() {
         document.getElementById("endEventButton1").style.display = "block";
         document.getElementById("endEventButton1").value = "Continue";
         document.getElementById("endEventButton1").onclick = function() {
-            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
             document.getElementById("eventDialog").style.display = "none";
             // update open province view if it's this random region
             if (chosenRegion === randomRegion) {
@@ -1948,7 +1948,7 @@ function endTurn() {
                         "Continue");
 
                     document.getElementById("endEventButton1").onclick = function() {
-                        document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                         document.getElementById("eventDialog").style.display = "none";
                         ageIncreasePhase();
                     };
@@ -1970,7 +1970,7 @@ function endTurn() {
                             document.getElementById("eventDialog").style.display = "none";
                             ageIncreasePhase();
                         }
-                        document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                     };
                 }
             }
@@ -2008,7 +2008,7 @@ function endTurn() {
                         "Your soldiers fought valiantly, and defeated the rebellion! You lost: "+results.friendlyLosses+" soldiers!",
                         "Continue");
                     document.getElementById("endEventButton1").onclick = function() {
-                        document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                         document.getElementById("eventDialog").style.display = "none";
                         ageIncreasePhase();
                     };
@@ -2030,7 +2030,7 @@ function endTurn() {
                             document.getElementById("eventDialog").style.display = "none";
                             ageIncreasePhase();
                         }
-                        document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                     };
                 }
             }
@@ -2106,7 +2106,7 @@ function endTurn() {
                 } else if (dynastyRank === 3) {
                     rankedup = totalRoll >= CRUSADE_ROLL_KING;
                 }
-                document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+                document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 if (rankedup) {
                     dynastyRank++;
                     // crusade lets you skip a title, so you don't need as many provinces
@@ -2174,7 +2174,7 @@ function endTurn() {
 
         document.getElementById("endEventButton1").onclick = function() {
             document.getElementById("eventDialog").style.display = "none";
-            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
             // move directly to increase age and true end turn
             ageIncreasePhase();
         };
@@ -2282,7 +2282,7 @@ function endTurn() {
 
         document.getElementById("endEventButton1").onclick = function() {
             document.getElementById("eventDialog").style.display = "none";
-            document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
+            document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
             // move directly to increase age and true end turn
             ageIncreasePhase();
         };
@@ -2898,7 +2898,7 @@ function hasChildrenToEducate() {
 // check if became holyRoman Emperor, then end game. otherwise return false
 function becameHolyRomanEmperor() {
     const province_count = Object.keys(provincesOwned).length;
-    document.getElementById("provinceNumber").textContent = province_count;
+    document.getElementById("provinceNumber").textContent = "Provinces: "+province_count;
     document.getElementById("dynastyRank").textContent = "Rank: " + getDynastyRankString();
     if (dynastyRank === 4) {
         // if they became holy roman emperor
@@ -2997,7 +2997,7 @@ function changeRegionControl(region, targetCountry) {
     document.getElementById(region.name).style.fill = targetCountry.color;
     const province_count = Object.keys(provincesOwned).length;
     // show how many left are needed for next level (every time it's three more)
-    document.getElementById("provinceNumber").textContent = province_count;
+    document.getElementById("provinceNumber").textContent = "Provinces: "+province_count;
     // if region is currently being shown, update
     if (chosenRegion.name === region.name) {
         updateCurrentlyShownProvince();
