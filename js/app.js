@@ -40,15 +40,16 @@ let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 let SOLDIERS_EVENT_MULTIPLE =  50;
 let MAX_PROVINCE_SOLDIERS = 750;
 let MIN_PROVINCE_SOLDIERS =  600;
+let MAX_OPINION_PROVINCES =  20;
 // let SOLDIERS_EVENT_MULTIPLE =  50;
 // highest age you can educate a child
 let MAX_EDUCATE_AGE =  20;
 // opinion loss from attacking a nation/provinces
 let OPINION_LOSS_ATTACK = -50;
 // opinion gain from marriage
-let OPINION_GAIN_MARRIAGE = 30;
+let OPINION_GAIN_MARRIAGE = 10;
 // must have at least this much opinion to get province to become a vassal
-let OPINION_REQUIRED_VASSAL = 75;
+let OPINION_REQUIRED_VASSAL = 90;
 // every soldier you have greater than enemy province adds opinion * multiplier
 let GREATER_STRENGTH_OPINION_MULTIPLIER = 0.05;
 // default soldiers for all nonplayer provinces
@@ -61,6 +62,8 @@ let SOLDIERS_TRAIN_AMOUNT = 100;
 let MIN_AGE_BIRTH = 16;
 // chance (from 0 to 1) of birthing a child
 let BIRTH_CHANCE = 0.5;
+// max percentage of soldiers to lose from crusades
+let CRUSADE_MAX_LOSS_PERCENTAGE = 0.30;
 // mininum total rolls to rank up as count from crusade event
 let CRUSADE_ROLL_COUNT = 100;
 // mininum total rolls to rank up as duke from crusade event
@@ -325,280 +328,280 @@ let Rebels = {
 let France = {
         name : FRANCE,
         flagUrl: FRANCE_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#0000f3",
         dynastyName : FRANCE_DYNASTY
 };
 let England = {
         name : ENGLAND,
         flagUrl: ENGLAND_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff0000",
         dynastyName : ENGLAND_DYNASTY
 };
 let Wales = {
         name : WALES,
         flagUrl: WALES_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#abc335",
         dynastyName : WALES_DYNASTY
 };
 let Germany = {
         name : GERMANY,
         flagUrl: GERMANY_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#f2f2f2",
         dynastyName : GERMANY_DYNASTY
 };
 let Scotland = {
         name : SCOTLAND,
         flagUrl: SCOTLAND_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#00009c",
         dynastyName : SCOTLAND_DYNASTY
 };
 let Sweden = {
         name : SWEDEN,
         flagUrl: SWEDEN_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#0f2af0",
         dynastyName : SWEDEN_DYNASTY
 };
 let Norway = {
         name : NORWAY,
         flagUrl: NORWAY_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#8086e6",
         dynastyName : NORWAY_DYNASTY
 };
 let Denmark = {
         name : DENMARK,
         flagUrl: DENMARK_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff5c06",
         dynastyName : DENMARK_DYNASTY
 };
 let Iceland = {
         name : ICELAND,
         flagUrl: ICELAND_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#cccccc",
         dynastyName : ICELAND_DYNASTY
 };
 let Brittany = {
         name : BRITTANY,
         flagUrl: BRITTANY_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#953a3a",
         dynastyName : BRITTANY_DYNASTY
 };
 let Muaidhe = {
         name : MUAIDHE,
         flagUrl: MUAIDHE_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#3fe33f",
         dynastyName : MUAIDHE_DYNASTY
 };
 let Leix = {
         name : LEIX,
         flagUrl: LEIX_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#008000",
         dynastyName : LEIX_DYNASTY
 };
 let Obotritia = {
         name : OBOTRITIA,
         flagUrl: OBOTRITIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#c87137",
         dynastyName : OBOTRITIA_DYNASTY
 };
 let Pomeria = {
         name : POMERIA,
         flagUrl: POMERIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#008000",
         dynastyName : POMERIA_DYNASTY
 };
 let Pruthenia = {
         name : PRUTHENIA,
         flagUrl: PRUTHENIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#771f1a",
         dynastyName : PRUTHENIA_DYNASTY
 };
 let Estonia = {
         name : ESTONIA,
         flagUrl: ESTONIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#aa335d",
         dynastyName : ESTONIA_DYNASTY
 };
 let Poland = {
         name : POLAND,
         flagUrl: POLAND_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ce0000",
         dynastyName : POLAND_DYNASTY
 };
 let Hungary = {
         name : HUNGARY,
         flagUrl: HUNGARY_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#f5816a",
         dynastyName : HUNGARY_DYNASTY
 };
 let Suomi = {
         name : SUOMI,
         flagUrl: SUOMI_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#713f1f",
         dynastyName : SUOMI_DYNASTY
 };
 let Rus = {
         name : RUS,
         flagUrl: RUS_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#00ab1f",
         dynastyName : RUS_DYNASTY
 };
 let Pechenegs = {
         name : PECHENEGS,
         flagUrl: PECHENEGS_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff7f2a",
         dynastyName : PECHENEGS_DYNASTY
 };
 let Crimea = {
         name : CRIMEA,
         flagUrl: CRIMEA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff2a2a",
         dynastyName : CRIMEA_DYNASTY
 };
 let Cumania = {
         name : CUMANIA,
         flagUrl: CUMANIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ffaaaa",
         dynastyName : CUMANIA_DYNASTY
 };
 let Croatia = {
         name : CROATIA,
         flagUrl: CROATIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#402440",
         dynastyName : CROATIA_DYNASTY
 };
 let Serbia = {
         name : SERBIA,
         flagUrl: SERBIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#6c5353",
         dynastyName : SERBIA_DYNASTY
 };
 let Byzantine = {
         name : BYZANTINE,
         flagUrl: BYZANTINE_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#800060",
         dynastyName : BYZANTINE_DYNASTY
 };
 let Genoa = {
         name : GENOA,
         flagUrl: GENOA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff5555",
         dynastyName : GENOA_DYNASTY
 };
 let Papal = {
         name : PAPAL,
         flagUrl: PAPAL_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ffc654",
         dynastyName : PAPAL_DYNASTY
 };
 let Apulia = {
         name : APULIA,
         flagUrl: APULIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#a8c13c",
         dynastyName : APULIA_DYNASTY
 };
 let Sardinia = {
         name : SARDINIA,
         flagUrl: SARDINIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#008080",
         dynastyName : SARDINIA_DYNASTY
 };
 let Galicia = {
         name : GALICIA,
         flagUrl: GALICIA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ffaaaa",
         dynastyName : GALICIA_DYNASTY
 };
 let Leon = {
         name : LEON,
         flagUrl: LEON_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#ff7f2a",
         dynastyName : LEON_DYNASTY
 };
 let Castille = {
         name : CASTILLE,
         flagUrl: CASTILLE_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#fff916",
         dynastyName : CASTILLE_DYNASTY
 };
 let Barcelona = {
         name : BARCELONA,
         flagUrl: BARCELONA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#691111",
         dynastyName : BARCELONA_DYNASTY
 };
 let Granada = {
         name : GRANADA,
         flagUrl: GRANADA_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#0aff0a",
         dynastyName : GRANADA_DYNASTY
 };
 let Almoravid = {
         name : ALMORAVID,
         flagUrl: ALMORAVID_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#00ff76",
         dynastyName : ALMORAVID_DYNASTY
 };
 let Maghrawavid = {
         name : MAGHRAWAVID,
         flagUrl: MAGHRAWAVID_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#d8d827",
         dynastyName : MAGHRAWAVID_DYNASTY
 };
 let Zirid = {
         name : ZIRID,
         flagUrl: ZIRID_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#0fdd00",
         dynastyName : ZIRID_DYNASTY
 };
 let Fatimid = {
         name : FATIMID,
         flagUrl: FATIMID_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#22dd7f",
         dynastyName : FATIMID_DYNASTY
 };
 let Hashimid = {
         name : HASHIMID,
         flagUrl: HASHIMID_FLAG,
-        opinion: Math.floor(Math.random()*50)+1,
+        opinion: Math.floor(Math.random()*MAX_OPINION_PROVINCES)+1,
         color : "#8eff00",
         dynastyName : HASHIMID_DYNASTY
 };
@@ -1816,7 +1819,7 @@ function endTurn() {
     }
     let randomChoice = weightedRandomChoice(WEIGHTS);
     // TODO SWAP TO WEIGHTED RANDOM CHOICE (this is just debugging)
-    // let randomChoice = "enemyAttack";
+    // let randomChoice = "crusade";
     if (randomChoice === "deathByAccident") {
         // Death of Family Member due to accident
         let aliveMembers = [];
@@ -2090,6 +2093,10 @@ function endTurn() {
                         totalRoll++;
                     }
                 }
+
+                // soldier losses from sending them out to crusade
+                let soldierLosses = Math.floor((Math.random()*(soldiersInput*CRUSADE_MAX_LOSS_PERCENTAGE))+10);
+                playerSoldiers -= soldierLosses;
                 // count, duke, and king have different requirements
                 let rankedUp = false;
                 if (dynastyRank === 1) {
@@ -2099,6 +2106,7 @@ function endTurn() {
                 } else if (dynastyRank === 3) {
                     rankedup = totalRoll >= CRUSADE_ROLL_KING;
                 }
+                document.getElementById("playerOwnedSoldiers").textContent = playerSoldiers;
                 if (rankedup) {
                     dynastyRank++;
                     // crusade lets you skip a title, so you don't need as many provinces
@@ -2106,7 +2114,7 @@ function endTurn() {
                     REQUIRED_PROVINCES_KING -= 3;
                     REQUIRED_PROVINCES_EMPEROR -= 3;
                     showEventDialog("./media/crusadeVictory.png",
-                        "Your soldiers fought valiantly, and impressed the Pope! Your title will rank up to a: " +getDynastyRankString()+"!",
+                        "Your soldiers fought valiantly, and impressed the Pope! You lost "+soldierLosses+" soldiers! Your title will rank up to a: " +getDynastyRankString()+"!",
                         "Continue");
                     document.getElementById("endEventButton1").onclick = function() {
                         // check if became holy emperor or ranked up, updating info as needed
@@ -2119,7 +2127,7 @@ function endTurn() {
                 } else {
                     // failed crusade
                     showEventDialog("./media/crusadesLoss.jpg",
-                        "Your soldiers fought valiantly, but failed to impress the Pope. You do not rank up.",
+                        "Your soldiers fought valiantly, but failed to impress the Pope. You lost "+soldierLosses+" soldiers! You do not rank up.",
                         "Continue");
                     document.getElementById("endEventButton1").onclick = function() {
                         document.getElementById("eventDialog").style.display = "none";
