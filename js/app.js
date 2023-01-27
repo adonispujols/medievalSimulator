@@ -1565,6 +1565,7 @@ function attack() {
                     let results = calculateBattleResults(currChosenRegion.soldiers);
                     playerSoldiers -= results.friendlyLosses;
                     currChosenRegion.soldiers -= results.enemyLosses;
+                    document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                     // out of the surviving active combat members, whoever is higher wins the battle
                     // if the invader is wins, they take province. otherwise nothing happens.
                     if (results.remainingSoldiersSent > results.remainingEnemySoldiers) {
@@ -1863,6 +1864,7 @@ function endTurn() {
         // (we do random * (max-min) + min to create a random for random in javascript), then turn it into an even multiple)
         let soldiersDefecting = Math.min(Math.ceil(playerSoldiers*MAX_SOLDIERS_BETRAY_PERCENTAGE), Math.round((Math.random()*(MAX_SOLDIERS_BETRAY-MIN_SOLDIERS_BETRAY)+MIN_SOLDIERS_BETRAY)/SOLDIERS_EVENT_MULTIPLE) * SOLDIERS_EVENT_MULTIPLE);
         playerSoldiers -= soldiersDefecting;
+        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         randomRegion.soldiers += soldiersDefecting;
 
         showEventDialog("./media/soldiersBetrayYou.png",
@@ -1894,6 +1896,7 @@ function endTurn() {
         let soldiersDefecting = Math.min(Math.ceil(randomRegion.soldiers*MAX_SOLDIERS_BETRAY_PERCENTAGE), Math.round((Math.random()*(MAX_SOLDIERS_BETRAY-MIN_SOLDIERS_BETRAY)+MIN_SOLDIERS_BETRAY)/SOLDIERS_EVENT_MULTIPLE) * SOLDIERS_EVENT_MULTIPLE);
         playerSoldiers += soldiersDefecting;
         randomRegion.soldiers -= soldiersDefecting;
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
 
         showEventDialog("./media/soldiersDefectToYou.png",
             "Due to the oppressive rule of the "+randomRegion.countryOwner.name+" in "+randomRegion.name+", "+soldiersDefecting+" military units have defected to your cause!",
@@ -1942,6 +1945,7 @@ function endTurn() {
                 let results = calculateBattleResults(enemySoldiers);
                 playerSoldiers -= results.friendlyLosses;
                 enemySoldiers -= results.enemyLosses;
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 // if we won the battle, just have soldiers count go down
                 if (results.remainingSoldiersSent >= results.remainingEnemySoldiers) {
                     showEventDialog("./media/victoryBattle.jpg",
@@ -2002,6 +2006,7 @@ function endTurn() {
             if (validSoldierInput()) {
                 let results = calculateBattleResults(rebelSoldiers);
                 playerSoldiers -= results.friendlyLosses;
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 rebelSoldiers -= results.enemyLosses;
                 // if we won the battle, just have soldiers count go down
                 if (results.remainingSoldiersSent >= results.remainingEnemySoldiers) {
@@ -2098,6 +2103,7 @@ function endTurn() {
                 // soldier losses from sending them out to crusade
                 let soldierLosses = Math.floor((Math.random()*(soldiersInput*CRUSADE_MAX_LOSS_PERCENTAGE))+10);
                 playerSoldiers -= soldierLosses;
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 // count, duke, and king have different requirements
                 let rankedUp = false;
                 if (dynastyRank === 1) {
@@ -2169,6 +2175,7 @@ function endTurn() {
         if (playerSoldiers < 0) {
             playerSoldiers = 0;
         }
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         showEventDialog("./media/diseaseKillsSomeSoldiers.png",
             "A plague has spread amongst your troops! "+soldiersDead+" soldiers unlucky enough to die of the illness will no longer be able to serve you on the battlefield!",
             "Continue");
@@ -2277,6 +2284,7 @@ function endTurn() {
         if (playerSoldiers < 0) {
             playerSoldiers = 0;
         }
+document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         showEventDialog("./media/deathOfSoldiersHygiene.png",
             soldiersDead+" units of your soldiers are unfit for combat due to extremely poor hygiene! Disease and filth spread unchecked throughout your barracks!",
             "Continue");
