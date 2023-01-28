@@ -444,7 +444,7 @@ button:disabled {
 #eventErrorText {
     display: none;
     position: absolute;
-    bottom: -1%;
+    bottom: -6%;
     color: red;
     font-weight: bold;
     left: 15%;
