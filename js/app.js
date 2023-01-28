@@ -2817,7 +2817,7 @@ function birthPhase() {
                     } else {
                         gender = F_GENDER;
                     }
-                    let newChild = new Character("", 0, Math.floor(Math.random()*3)+1, babyIcons[gender], gender, famMember.skin);
+                    let newChild = new Character("", 0, Math.floor(Math.random()*3)+1, babyIcons[famMember.skin][gender], gender, famMember.skin);
                     famMember.children.push(newChild);
                     allBirths.push([famMember, newChild]);
                     // if there is no heir currently, make this child new heir
