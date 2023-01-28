@@ -59,7 +59,7 @@ let REBELLION_STRENGTH_PERCENTAGE = 0.40;
 // amount of soldiers trained from button
 let SOLDIERS_TRAIN_AMOUNT = 100;
 // must be at least this age (16) to give bith if married
-let MIN_AGE_BIRTH = 16;
+let MIN_AGE_BIRTH = 21;
 // chance (from 0 to 1) of birthing a child
 let BIRTH_CHANCE = 0.5;
 // max percentage of soldiers to lose from crusades
@@ -151,22 +151,37 @@ let iconChoices = {
     "queen_3_choice" : "./media/queen_3.png"
 };
 
+const W_SKIN = "w";
+const B_SKIN = "b";
 const M_GENDER = "m";
 const F_GENDER = "f";
+// icons organized by [SKIN][GENDER]
 let babyIcons = {
-    "m" : "./media/baby_boy.png",
-    "f" : "./media/baby_girl.png"
+    "w" : {
+        "m" : "./media/baby_boy.png",
+        "f" : "./media/baby_girl.png"
+    },
+    "b" : {
+        "m" : "./media/baby_boy_b.png",
+        "f" : "./media/baby_girl_b.png"
+    }
 };
 let kidIcons = {
-    "m" : "./media/boy.png",
-    "f" : "./media/girl.png"
+    "w" : {
+        "m" : "./media/boy.png",
+        "f" : "./media/girl.png"
+    },
+    "b" : {
+        "m" : "./media/boy_b.png",
+        "f" : "./media/girl_b.png"
+    }
 };
 
 
 
 // character object for each descendant
 // todo by default iconUrl is baby url
-function Character(name, age, skillLevel, iconUrl, gender) {
+function Character(name, age, skillLevel, iconUrl, gender, skin) {
     this.name = name;
     this.age = age;
     // TODO SKILL LEVEL IS RANDOM FROM 1-3 FOR NEW PEOPLE!
@@ -182,6 +197,7 @@ function Character(name, age, skillLevel, iconUrl, gender) {
     uniqueId++;
     this.iconUrl = iconUrl;
     this.gender = gender;
+    this.skin = skin; // skin color chosen
     // if icon is permanent (should not change to random icon once become adult)
     this.iconSet = false;
 }
@@ -1423,21 +1439,26 @@ function loadGame() {
     gameScreen.style.display = "block";
 
     // setup family
-    // todo determeien ruler geneder based on choice...
     let gender;
     if (iconChosen === "king_1_choice" || iconChosen === "king_2_choice" || iconChosen === "king_3_choice") {
         gender = M_GENDER;
     } else if (iconChosen === "queen_1_choice" || iconChosen === "queen_2_choice" || iconChosen === "queen_3_choice") {
         gender = F_GENDER;
     }
-    currentRuler = new Character(initialRulerName, INITIAL_RULER_AGE, INITIAL_RULER_SKILL_LEVEL, iconChoices[iconChosen], gender);
+    let skin;
+    if (iconChosen === "king_1_choice" || iconChosen === "king_2_choice" || iconChosen === "queen_1_choice" || iconChosen === "queen_3_choice") {
+        skin = W_SKIN;
+    } else if (iconChosen === "king_3_choice" || iconChosen === "queen_2_choice") {
+        skin = B_SKIN;
+    }
+    currentRuler = new Character(initialRulerName, INITIAL_RULER_AGE, INITIAL_RULER_SKILL_LEVEL, iconChoices[iconChosen], gender, skin);
     currentRuler.spouse = playerCountry;
     currentRuler.iconSet = true;
 
-    currentHeir = new Character("Henry", 0, Math.floor(Math.random()*3)+1, babyIcons[M_GENDER], M_GENDER);
+    currentHeir = new Character("Henry", 0, Math.floor(Math.random()*3)+1, babyIcons[skin][M_GENDER], M_GENDER, skin);
     // add another child
     currentRuler.children.push(currentHeir);
-    currentRuler.children.push(new Character("Elizabeth", 0, Math.floor(Math.random()*3)+1, babyIcons[F_GENDER], F_GENDER));
+    currentRuler.children.push(new Character("Elizabeth", 0, Math.floor(Math.random()*3)+1, babyIcons[skin][F_GENDER], F_GENDER, skin));
 
 
     // setup initial values in ui
@@ -1564,8 +1585,8 @@ function attack() {
                 if (validSoldierInput()) {
                     let results = calculateBattleResults(currChosenRegion.soldiers);
                     playerSoldiers -= results.friendlyLosses;
-                    currChosenRegion.soldiers -= results.enemyLosses;
                     document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
+                    currChosenRegion.soldiers -= results.enemyLosses;
                     // out of the surviving active combat members, whoever is higher wins the battle
                     // if the invader is wins, they take province. otherwise nothing happens.
                     if (results.remainingSoldiersSent > results.remainingEnemySoldiers) {
@@ -1895,8 +1916,8 @@ function endTurn() {
         // (we do random * (max-min) + min to create a random for random in javascript), then turn it into an even multiple)
         let soldiersDefecting = Math.min(Math.ceil(randomRegion.soldiers*MAX_SOLDIERS_BETRAY_PERCENTAGE), Math.round((Math.random()*(MAX_SOLDIERS_BETRAY-MIN_SOLDIERS_BETRAY)+MIN_SOLDIERS_BETRAY)/SOLDIERS_EVENT_MULTIPLE) * SOLDIERS_EVENT_MULTIPLE);
         playerSoldiers += soldiersDefecting;
+        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         randomRegion.soldiers -= soldiersDefecting;
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
 
         showEventDialog("./media/soldiersDefectToYou.png",
             "Due to the oppressive rule of the "+randomRegion.countryOwner.name+" in "+randomRegion.name+", "+soldiersDefecting+" military units have defected to your cause!",
@@ -1944,8 +1965,8 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
             if (validSoldierInput()) {
                 let results = calculateBattleResults(enemySoldiers);
                 playerSoldiers -= results.friendlyLosses;
+                document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 enemySoldiers -= results.enemyLosses;
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 // if we won the battle, just have soldiers count go down
                 if (results.remainingSoldiersSent >= results.remainingEnemySoldiers) {
                     showEventDialog("./media/victoryBattle.jpg",
@@ -2006,7 +2027,7 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
             if (validSoldierInput()) {
                 let results = calculateBattleResults(rebelSoldiers);
                 playerSoldiers -= results.friendlyLosses;
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
+                document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 rebelSoldiers -= results.enemyLosses;
                 // if we won the battle, just have soldiers count go down
                 if (results.remainingSoldiersSent >= results.remainingEnemySoldiers) {
@@ -2087,7 +2108,7 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
                 document.getElementById("eventErrorText").textContent = "Error: Enter a proper integer."
             } else if ((soldiersInput > playerSoldiers) || (soldiersInput<0)) {
                 document.getElementById("eventErrorText").style.display = "block";
-                document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers"+playerSoldiers+"."
+                document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers "+playerSoldiers+"."
             } else {
                 // each soldier sent will roll from 0 to 1,
                 // if the rolled amount is high enough you can rank up
@@ -2103,7 +2124,7 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
                 // soldier losses from sending them out to crusade
                 let soldierLosses = Math.floor((Math.random()*(soldiersInput*CRUSADE_MAX_LOSS_PERCENTAGE))+10);
                 playerSoldiers -= soldierLosses;
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
+                document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
                 // count, duke, and king have different requirements
                 let rankedUp = false;
                 if (dynastyRank === 1) {
@@ -2172,10 +2193,10 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
         // choose a random amount of soldiers to lose from disease between min and max possible in increments of 50
         let soldiersDead = Math.max(MIN_SOLDIERS_LOST_DISEASE, (Math.round((Math.random()*MAX_SOLDIERS_LOST_DISEASE)/SOLDIERS_EVENT_MULTIPLE) * SOLDIERS_EVENT_MULTIPLE));
         playerSoldiers -= soldiersDead;
+        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         if (playerSoldiers < 0) {
             playerSoldiers = 0;
         }
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         showEventDialog("./media/diseaseKillsSomeSoldiers.png",
             "A plague has spread amongst your troops! "+soldiersDead+" soldiers unlucky enough to die of the illness will no longer be able to serve you on the battlefield!",
             "Continue");
@@ -2281,10 +2302,10 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
         // choose a random amount of soldiers to lose from disease between min and max possible in increments of 50
         let soldiersDead = Math.max(MIN_SOLDIERS_LOST_DISEASE, (Math.round((Math.random()*MAX_SOLDIERS_LOST_DISEASE)/SOLDIERS_EVENT_MULTIPLE) * SOLDIERS_EVENT_MULTIPLE));
         playerSoldiers -= soldiersDead;
+        document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         if (playerSoldiers < 0) {
             playerSoldiers = 0;
         }
-document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+playerSoldiers;
         showEventDialog("./media/deathOfSoldiersHygiene.png",
             soldiersDead+" units of your soldiers are unfit for combat due to extremely poor hygiene! Disease and filth spread unchecked throughout your barracks!",
             "Continue");
@@ -2785,8 +2806,8 @@ function birthPhase() {
         let allBirths = [];
         for (let memberId in familyMembers) {
             let famMember = familyMembers[memberId];
-            // if the fam member if alive, married, and over 16, there's an X % chance of making a chlid
-            if (famMember.isAlive && (famMember.spouse!==null) && (famMember.age>=MIN_AGE_BIRTH)) {
+            // if the fam member if alive, married, and over 21, there's an X % chance of making a chlid
+            if (famMember.isAlive && (famMember.spouse!==null) && (famMember.age>MIN_AGE_BIRTH)) {
                 if (Math.random() < BIRTH_CHANCE) {
                     // child has random skill level from 1 to 3;
                     // and 50% chance to be boy or girl
@@ -2796,7 +2817,7 @@ function birthPhase() {
                     } else {
                         gender = F_GENDER;
                     }
-                    let newChild = new Character("", 0, Math.floor(Math.random()*3)+1, babyIcons[gender], gender);
+                    let newChild = new Character("", 0, Math.floor(Math.random()*3)+1, babyIcons[gender], gender, famMember.skin);
                     famMember.children.push(newChild);
                     allBirths.push([famMember, newChild]);
                     // if there is no heir currently, make this child new heir
@@ -2829,17 +2850,29 @@ function ageIncreasePhase() {
         if (famMember.isAlive) {
             famMember.age += 10;
             if (famMember.age < 10) {
-                famMember.iconUrl = babyIcons[famMember.gender];
+                famMember.iconUrl = babyIcons[famMember.skin][famMember.gender];
             } else if(famMember.age >= 10 && famMember.age < 30) {
-                famMember.iconUrl = kidIcons[famMember.gender];
+                famMember.iconUrl = kidIcons[famMember.skin][famMember.gender];
             } else {
-                // if adult over 30, choose random icon
-                // IF icon isn already set
+                // if adult over 30, choose updated icon keeping in mind skin+gender
+                // random pic if white (two options), otherwise use default black tone
                 if (!famMember.iconSet) {
-                    if (famMember.gender === M_GENDER) {
-                        famMember.iconUrl = "./media/king_"+(Math.floor(Math.random()*3)+1)+".png"
-                    } else {
-                        famMember.iconUrl = "./media/queen_"+(Math.floor(Math.random()*3)+1)+".png"
+                    if (famMember.skin === W_SKIN && famMember.gender === M_GENDER) {
+                        if (Math.floor(Math.random() * 2) === 1) {
+                            famMember.iconUrl = "./media/king_1.png";
+                        } else {
+                            famMember.iconUrl = "./media/king_2.png";
+                        }
+                    } else if (famMember.skin === W_SKIN && famMember.gender === F_GENDER) {
+                        if (Math.floor(Math.random() * 2) === 1) {
+                            famMember.iconUrl = "./media/queen_1.png";
+                        } else {
+                            famMember.iconUrl = "./media/queen_3.png";
+                        }
+                    } else if (famMember.skin === B_SKIN && famMember.gender === M_GENDER) {
+                        famMember.iconUrl = "./media/king_3.png";
+                    } else if (famMember.skin === B_SKIN && famMember.gender === F_GENDER) {
+                        famMember.iconUrl = "./media/queen_2.png";
                     }
                     famMember.iconSet = true;
                 }
@@ -3024,7 +3057,7 @@ function showSoldierInputValue() {
 }
 
 // checks if inputted valid soldier count and return true, else display error message.
-function validSoldierInput(){
+function validSoldierInput() {
     let soldiersInput = parseInt(Number((document.getElementById("eventInputValue").value).trim(), 10));
     if (isNaN(soldiersInput)){
         // displayErrorMessage("Error: Every box must be filled with a number (type 0 if none)!");
@@ -3033,7 +3066,7 @@ function validSoldierInput(){
         return false;
     } else if ((soldiersInput > playerSoldiers) || (soldiersInput<0)) {
         document.getElementById("eventErrorText").style.display = "block";
-        document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers"+playerSoldiers+"."
+        document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers of "+playerSoldiers+"."
         return false;
     } else {
         return true;
