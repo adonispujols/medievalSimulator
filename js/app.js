@@ -2087,7 +2087,7 @@ document.getElementById("playerOwnedSoldiers").textContent = "Soldiers :"+player
                 document.getElementById("eventErrorText").textContent = "Error: Enter a proper integer."
             } else if ((soldiersInput > playerSoldiers) || (soldiersInput<0)) {
                 document.getElementById("eventErrorText").style.display = "block";
-                document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers."
+                document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers"+playerSoldiers+"."
             } else {
                 // each soldier sent will roll from 0 to 1,
                 // if the rolled amount is high enough you can rank up
@@ -3033,7 +3033,7 @@ function validSoldierInput(){
         return false;
     } else if ((soldiersInput > playerSoldiers) || (soldiersInput<0)) {
         document.getElementById("eventErrorText").style.display = "block";
-        document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers."
+        document.getElementById("eventErrorText").textContent = "Error: Number must be between 0 and your total soldiers"+playerSoldiers+"."
         return false;
     } else {
         return true;
