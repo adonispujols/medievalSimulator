@@ -232,12 +232,9 @@ button:disabled {
 }
 
 #regionOwnerFlag {
-    /*display:inline-block;*/
-    width: 300px;
-    height: 200px;
-    vertical-align: text-top;
-    /*float: right;*/
-    /*position: fixed;*/
+  width: 288px;
+  height: 172px;
+  vertical-align: text-top;
 }
 
 #gameScreen {
@@ -268,8 +265,18 @@ button:disabled {
 }
 
 .inlineIcon img {
-  width:64px;
-  height:64px;
+  width:24px;
+  height:24px;
+}
+
+.inlineIconTop {
+  width:40%;
+  padding-right: 10px;
+}
+
+.inlineIconTop img {
+  width:54px;
+  height:54px;
 }
 
 .playerInfo {
@@ -347,11 +354,11 @@ button:disabled {
   background-image: url('../media/eventBackground.png');
   background-size: 100% 113%;
   background-repeat: no-repeat;
-  height: 94%;
-  width: 209%;
+  height: 100%;
+  width: 169%;
   position: absolute;
-  top: 0%;
-  left: 31%;
+  top: -4%;
+  left: 24%;
 }
 
 .innerEventContentBoundary {
@@ -403,7 +410,7 @@ button:disabled {
 
 
 .eventTextBox {
-  height: 26%;
+  height: 36%;
   background-color: wheat;
   border-width: 8px;
   border-style: ridge;
@@ -413,20 +420,19 @@ button:disabled {
 }
 
 #eventImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    width: 650px;
-    height: 300px;
-    border-width: 4px;
-    border-style: solid;
-    border-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 557px;
+  height: 222px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: black;
 }
 
 #eventText {
-    font-size: 23px;
-    text-align: center;
+  font-size: 22px;
+  text-align: center;
 }
 
 .eventButtons input, .eventButtons label, .eventButtons button {
@@ -442,13 +448,14 @@ button:disabled {
 }
 
 #eventErrorText {
-    display: none;
-    position: absolute;
-    bottom: -6%;
-    color: red;
-    font-weight: bold;
-    left: 15%;
-    font-size: 25px;
+  display: none;
+  position: absolute;
+  bottom: -10%;
+  color: red;
+  font-weight: bold;
+  left: 15%;
+  font-size: 25px;
+  background-color: black;
 }
 
 #eventInputValue {
@@ -460,7 +467,7 @@ button:disabled {
 #familyErrorText {
     display: none;
     position: absolute;
-    bottom: 5%;
+    bottom: 0%;
     color: red;
     font-weight: bold;
     font-size: 25px;
