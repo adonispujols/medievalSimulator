@@ -38,8 +38,8 @@ let MAX_SOLDIERS_BETRAY_PERCENTAGE =  0.5;
 // what closest multiple (like 50) will soldiers be rounded to in disease, betrayal, etc
 // if 50, then it's 100, 150, 200 etc. if 10 it's 110,120,130. if 1 then 111,112,113, etc.
 let SOLDIERS_EVENT_MULTIPLE =  50;
-let MAX_PROVINCE_SOLDIERS = 750;
-let MIN_PROVINCE_SOLDIERS =  600;
+let MAX_PROVINCE_SOLDIERS = 900;
+let MIN_PROVINCE_SOLDIERS =  500;
 let MAX_STARTING_PROVINCE_OPINION =  20;
 // let SOLDIERS_EVENT_MULTIPLE =  50;
 // highest age you can educate a child
