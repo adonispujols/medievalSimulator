@@ -1619,7 +1619,7 @@ function attack() {
                     } else {
                         // defeat
                         showEventDialog("./media/defeatBattle.png",
-                            "Your soldiers fought valiantly, but were defeated! The enemy still has "+remainingEnemySoldiers+" men remaining, compared to your "+remainingSoldiersSent+" soldiers sent remaining. You lost "+friendlyLosses+" soldiers, and the enemy lost "+enemyLosses+"!",
+                            "Your soldiers fought valiantly, but were defeated! The enemy still has "+results.remainingEnemySoldiers+" men remaining, compared to your "+results.remainingSoldiersSent+" soldiers sent remaining. You lost "+results.friendlyLosses+" soldiers, and the enemy lost "+results.enemyLosses+"!",
                             "Continue");
                         changeOpinion(OPINION_LOSS_ATTACK, currChosenRegion.countryOwner);
                         document.getElementById("endEventButton1").onclick = function() {
